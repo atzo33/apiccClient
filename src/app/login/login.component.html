@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+</head>
+<body>
+  <div style="text-align: center; margin-top: 150px;">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <br>
+        <input type="text" id="username" formControlName="username" placeholder="Enter your Username" required>
+      </div>
+      <br><br>
+      
+      <div>
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" id="password" formControlName="password" placeholder="Enter your password" required>
+      </div>
+      <br><br>
+      
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
