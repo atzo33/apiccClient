@@ -1,0 +1,72 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Center the login form */
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Set your desired background color */
+  }
+  
+  .login-div {
+    border: 1px solid #ccc; /* Add a little border */
+    padding: 20px;
+    background-color: #fff; /* Set your desired background color */
+    z-index: 1; /* Set the z-index */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    max-width: 400px; /* Set the maximum width of the login form */
+    width: 90%; /* Set the width to 90% of the available space */
+  }
+  
+  .login-div h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the form elements */
+  label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #007bff; /* Set your desired button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Set your desired hover color */
+  }
+  
+  /* Add media query for responsiveness */
+  @media (max-width: 768px) {
+    .login-div {
+      max-width: 90%;
+    }
+    
+  }
+  
