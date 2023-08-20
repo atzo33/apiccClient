@@ -1,0 +1,11 @@
+
+
+<div class="container">
+    <h1>Posts</h1>
+    <div class="post-list">
+        <div class="post-item" *ngFor="let post of (posts | async)">
+            <p class="post-content">{{ post.content }}</p>
+        </div>
+    </div>
+</div>
+

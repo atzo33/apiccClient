@@ -10,13 +10,26 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './TokenInterceptor/token.interceptor';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileNavBarComponent } from './components/profile-nav-bar/profile-nav-bar.component';
+
+import { MyInfoComponent } from './pages/my-info/my-info.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent,
+    NewPostComponent,
+    ProfileComponent,
+    ProfileNavBarComponent,
+    MyInfoComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
