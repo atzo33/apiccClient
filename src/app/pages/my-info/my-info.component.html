@@ -1,1 +1,33 @@
-<p>my-info works!</p>
+<app-nav-bar class="nav-bar"></app-nav-bar>
+<app-profile-nav-bar class="profile-nav-bar"></app-profile-nav-bar>
+
+<div class="container">
+    <h1 class="page-title">Profile</h1>
+    <div class="profile-card">
+        <div class="profile-picture">
+            <img src="\assets\images\3052.png_300.png" alt="Profile Picture">
+        </div>
+        <div class="profile-info" *ngIf="!editingMode; else editMode">
+            <p class="info-item"><span class="info-label">Username:</span> {{user.username}}</p>
+            <p class="info-item"><span class="info-label">Email:</span> {{user.email}}</p>
+            <p class="info-item"><span class="info-label">First Name:</span> {{user.firstName}}</p>
+            <p class="info-item"><span class="info-label">Last Name:</span> {{user.lastName}}</p>
+            <button (click)="startEdit()" class="edit-button">Edit Profile</button>
+            <button (click)="changePassword()" class="edit-button">Change password</button>
+        </div>
+        <ng-template #editMode>
+            <form (submit)="saveProfile(editedUser)" class="edit-form">
+                <label class="form-label">Username:</label>
+                <input type="text" [(ngModel)]="editedUser.username" name="username" class="form-input">
+                <label class="form-label">Email:</label>
+                <input type="email" [(ngModel)]="editedUser.email" name="email" class="form-input">
+                <label class="form-label">First Name:</label>
+                <input type="text" [(ngModel)]="editedUser.firstName" name="firstName" class="form-input">
+                <label class="form-label">Last Name:</label>
+                <input type="text" [(ngModel)]="editedUser.lastName" name="lastName" class="form-input">
+                <button type="submit" class="save-button">Save</button>
+                <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
+            </form>
+        </ng-template>
+    </div>
+</div>

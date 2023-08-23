@@ -14,6 +14,8 @@ import { PostService } from 'src/app/services/post/post.service';
 export class PostComponent {
   loggedUser!: User;
   userId!: number;
+  editingMode = false;
+  selectedPost: any;
 
   posts!: Observable<Post[]>;// Replace 'any' with the actual type of your posts
   
@@ -30,5 +32,37 @@ export class PostComponent {
     this.posts = this.postService.getAllPostsByUser(this.userId);
     console.log(this.userId)
   }
+
+  delete(id:number){
+
+    this.postService.deletePost(id);
+    console.log(this.userId)
+  }
+
+  editPost(post: any) {
+    this.editingMode = true;
+    this.selectedPost = { ...post };
+    
+    
+  }
+  
+  cancelEdit() {
+    this.editingMode=false
+    
+  }
+  
+  updatePost(post: any) {
+
+    const id=post.id
+    const content=post.content
+
+    this.postService.updatePost(id,content);
+    this.editingMode=false
+    window.location.reload();
+    
+  }
+
+  
+  
 
 }

@@ -7,6 +7,7 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 import { MyInfoComponent } from './pages/my-info/my-info.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 const routes: Routes = [
   { 
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'my-info',
     component: MyInfoComponent,
+  } ,
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
   } 
   
 ];

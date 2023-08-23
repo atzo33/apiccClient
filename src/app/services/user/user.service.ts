@@ -52,4 +52,58 @@ export class UserService {
 
     return JSON.parse(savedLocally) as User;
   }
+
+  updateUser(user:User){
+
+    console.log(user)
+    let username=user.username
+    let email=user.email
+    let firstName=user.firstName
+    let lastName=user.lastName
+
+    
+
+    this.http.put<any>(
+      `${this.baseURL}/${user.id}`,
+      
+      {
+         username,
+         email,
+         firstName,
+         lastName
+      }
+    ).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+    // this.router.navigate(['profile']);
+  }
+
+  updatePassword(password:string,id:number){
+
+    this.http.put<any>(
+      `${this.baseURL}/${id}`,
+      
+      {
+         password
+      }
+    ).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+    this.router.navigate(['']);
+
+   
+    
+    
+
+  }
 }

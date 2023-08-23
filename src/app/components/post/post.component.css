@@ -1,13 +1,10 @@
+/* styles.css */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #fdfdfd;
     color: #fff;
-}
-
-.navbar {
-    margin-bottom: 15px;
 }
 
 .container {
@@ -32,26 +29,57 @@ h1 {
 
 .post-item {
     margin: 10px 0;
-    padding: 15px;
+    padding: 10px; /* Reduce padding to create space between post items */
     background-color: #333;
     border-radius: 5px;
     border: 1px solid #ffcc00;
+    display: flex;
+    flex-direction: column; /* Make each post item a column layout */
+}
+
+.upper-post {
+    padding: 5px;
+    background-color: #444;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.post-name {
+    color: #ffcc00;
+    margin: 0;
 }
 
 .post-content {
+    flex: 1; /* Fill remaining space within the post-item */
+    padding: 10px;
     color: #fff;
     word-wrap: break-word;
+    border-bottom: 1px solid #ffcc00;
 }
 
-button {
+.lower-post {
+    padding: 10px;
+    background-color: #444;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: space-between; /* Align buttons and reactions at the bottom */
+    align-items: center;
+}
+
+.update-button, .delete-button {
     background-color: #ffcc00;
     color: #333;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
+.update-button:hover, .delete-button:hover {
     background-color: #ffdd33;
+}
+
+.reactions {
+    /* Add styling for reactions here */
 }

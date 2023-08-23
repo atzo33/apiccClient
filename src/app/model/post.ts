@@ -17,4 +17,6 @@ export interface Post {
 
     creationDate: String 
 
+    editing: boolean; 
+
 }

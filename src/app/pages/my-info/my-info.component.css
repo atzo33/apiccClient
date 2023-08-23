@@ -1,0 +1,102 @@
+/* styles.css */
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+    color: #333; /* Changed text color for better readability */
+}
+
+/* Component-Specific Styles */
+.nav-bar {
+    /* Add styles for the app-nav-bar component */
+}
+
+.profile-nav-bar {
+    /* Add styles for the app-profile-nav-bar component */
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #ffcc00;
+}
+
+.profile-info {
+    color: #fff;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Styling for editing mode */
+.editing-mode {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Adjusted label color */
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333; /* Adjusted input text color */
+}
+
+.save-button,
+.cancel-button,
+.edit-button {
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: #ffcc00;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button:hover,
+.cancel-button:hover {
+    background-color: #ffa500;
+}
+
+/* Add any additional styling you need for the editing mode */

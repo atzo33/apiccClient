@@ -17,6 +17,7 @@ import { ProfileNavBarComponent } from './components/profile-nav-bar/profile-nav
 
 import { MyInfoComponent } from './pages/my-info/my-info.component';
 import { PostComponent } from './components/post/post.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PostComponent } from './components/post/post.component';
     ProfileComponent,
     ProfileNavBarComponent,
     MyInfoComponent,
-    PostComponent
+    PostComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -35,12 +35,14 @@ export class PostService {
     ).subscribe({
       next: (response) => {
         console.log(response);
+        window.location.reload();
       },
       error: (err) => {
         console.log(err)
       }
     })
     this.router.navigate(['profile']);
+    
   }
 
   getAllPostsByUser(id: number): Observable<Post[]> {
@@ -49,6 +51,57 @@ export class PostService {
 
     return this.http.get<Post[]>(url);
   }
+
+  deletePost(id: number): void {
+
+    const url = `${this.baseURL}/${id}`;
+    this.http.delete<Post>(url,{
+      headers: {
+        Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+      }}).subscribe({
+      next: () => {
+        console.log('Post deleted successfully.');
+        // You can navigate to a different route or refresh the posts list here
+        this.router.navigate(['home']);
+      },
+      error: error => {
+        console.error('Error deleting post:', error);
+      }
+    });;
+    window.location.reload();
+
+  }
+
+  updatePost(id:number, content:string){
+
+    
+    console.log(content)
+    console.log(id)
+
+    this.http.put<any>(
+      `${this.baseURL}/${id}`,
+      
+      {
+        content  
+      }
+    ).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+    this.router.navigate(['profile']);
+    
+
+
+
+
+  }
+
+
+
 
   
 }
