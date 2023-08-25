@@ -16,6 +16,7 @@ export class PostComponent {
   userId!: number;
   editingMode = false;
   selectedPost: any;
+  
 
   posts!: Observable<Post[]>;// Replace 'any' with the actual type of your posts
   
@@ -26,11 +27,14 @@ export class PostComponent {
     this.loggedUser = this.userService.getUser() as User;
     this.userId=this.loggedUser.id;
     this.loadPosts();
+    
+    
   }
 
   private loadPosts() {
     this.posts = this.postService.getAllPostsByUser(this.userId);
-    console.log(this.userId)
+    console.log(this.userId);
+    
   }
 
   delete(id:number){

@@ -46,9 +46,9 @@ export class ChangePasswordComponent {
     
 
 
-    if(newPw==repeatPw && oldPw==this.user.password){
+    if(newPw==repeatPw){
       console.log("uslo")
-      this.userService.updatePassword(newPw,this.user.id);
+      this.userService.updatePassword(newPw,oldPw,this.user.id);
     }
     
   }

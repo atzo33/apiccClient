@@ -18,6 +18,7 @@ import { ProfileNavBarComponent } from './components/profile-nav-bar/profile-nav
 import { MyInfoComponent } from './pages/my-info/my-info.component';
 import { PostComponent } from './components/post/post.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ReactionsComponent } from './components/reactions/reactions.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     ProfileNavBarComponent,
     MyInfoComponent,
     PostComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ReactionsComponent
   ],
   imports: [
     BrowserModule,

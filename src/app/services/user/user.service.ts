@@ -4,6 +4,7 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Router } from '@angular/router';
 import User from 'src/app/model/user';
 import { Observable, map } from 'rxjs';
+import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,14 @@ import { Observable, map } from 'rxjs';
 export class UserService {
   private baseURL: string = 'http://localhost:8080/api/users';
   currentUser : any;
+  
 
   constructor(
     private http: HttpClient,
     private localStorage: LocalStorageService,
     
-    private router: Router
+    private router: Router,
+    
   ) {}
 
   public collectUserDetailsAfterLogin(): void {
@@ -34,7 +37,7 @@ export class UserService {
   }
 
   whoAmI(): Observable<User>{
-    return this.http.get<User>(this.baseURL,{
+    return this.http.get<User>(`${this.baseURL}/whoami`,{
        headers:{
          Authorization: `${this.localStorage.getItem("jwt")}`
        }
@@ -83,13 +86,15 @@ export class UserService {
     // this.router.navigate(['profile']);
   }
 
-  updatePassword(password:string,id:number){
+  updatePassword(newPassword:string,oldPassword:string,id:number){
 
     this.http.put<any>(
-      `${this.baseURL}/${id}`,
+      `${this.baseURL}/password-change`,
       
       {
-         password
+         newPassword,
+         oldPassword,
+         id
       }
     ).subscribe({
       next: (response) => {
@@ -99,7 +104,9 @@ export class UserService {
         console.log(err)
       }
     })
+    this.localStorage.clear;
     this.router.navigate(['']);
+    
 
    
     

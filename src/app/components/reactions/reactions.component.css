@@ -1,0 +1,49 @@
+/* Reactions bar container */
+.reactions-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Reaction buttons */
+  .reaction-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Default button styles */
+  .reaction-button.clicked {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* Styles for individual buttons */
+  .reaction-button.like.clicked {
+    background-color: #2ecc71;
+  }
+  
+  .reaction-button.dislike.clicked {
+    background-color: #e74c3c;
+  }
+  
+  .reaction-button.heart.clicked {
+    background-color: #e91e63;
+  }
+  
+  /* Hover effect */
+  .reaction-button:hover {
+    background-color: #78f116;
+    color: #333;
+  }
+  
+  /* Hover effect on clicked buttons */
+  .reaction-button.clicked:hover {
+    background-color: #3498db;
+  }
+  

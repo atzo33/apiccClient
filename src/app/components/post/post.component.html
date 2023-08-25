@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
     <title>Posts</title>
      <!-- Link to your CSS file -->
 </head>
@@ -19,6 +21,7 @@
                     <form (submit)="updatePost(selectedPost)">
                         <textarea name="postContent" [(ngModel)]="selectedPost.content" class="edit-content-text" placeholder="{{selectedPost.content}}">{{post.content}}</textarea>
                         <button type="submit" class="save-button">Save</button>
+                        
                         <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
                     </form>
                 </div>
@@ -29,11 +32,13 @@
                     </div>
                     <div class="lower-post">
                         <button (click)="editPost(post)" class="update-button">Edit</button>
+                        
                         <button (click)="delete(post.id)" class="delete-button">Delete</button>
                         <div class="reactions">
-                            <!-- Add your reactions here -->
+                            <app-reactions  [postId]="post.id"></app-reactions>
                         </div>
                     </div>
+                    
                 </ng-template>
             </div>
         </div>
