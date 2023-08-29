@@ -19,6 +19,11 @@ import { MyInfoComponent } from './pages/my-info/my-info.component';
 import { PostComponent } from './components/post/post.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ReactionsComponent } from './components/reactions/reactions.component';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { GroupsNavBarComponent } from './components/groups-nav-bar/groups-nav-bar.component';
+import { NewGroupComponent } from './pages/new-group/new-group.component';
+import { OneGroupComponent } from './components/one-group/one-group.component';
+import { GroupDetailsComponent } from './pages/group-details/group-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { ReactionsComponent } from './components/reactions/reactions.component';
     MyInfoComponent,
     PostComponent,
     ChangePasswordComponent,
-    ReactionsComponent
+    ReactionsComponent,
+    GroupsComponent,
+    GroupsNavBarComponent,
+    NewGroupComponent,
+    OneGroupComponent,
+    GroupDetailsComponent
   ],
   imports: [
     BrowserModule,

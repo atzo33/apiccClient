@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Create New Group</title>
+</head>
+<body>
+    <div class="navbar">
+        <!-- Your navigation bar content here -->
+    </div>
+    <div class="container">
+        <h1>Create a New Group</h1>
+        <form class="post-form" [formGroup]="createGroupForm" (ngSubmit)="createGroup()">
+            <label for="groupName">Group Name</label>
+            <input type="text" formControlName="groupName" id="groupName" name="groupName" class="input-field" required>
+            
+            <label for="groupDescription">Group Description</label>
+            <textarea formControlName="groupDescription" id="groupDescription" name="groupDescription" class="input-field" rows="5" required></textarea>
+            
+            <button type="submit" class="post-button">Create Group</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #ffcc00;
+    padding: 10px 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Set the height of the navbar */
+}
+
+.nav-list li {
+    flex: 1; /* Distribute available space equally among items */
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: larger;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center; /* Center the button text */
+}
+
+.nav-list li a:hover {
+    background-color: #333;
+    color: #ffcc00;
+}

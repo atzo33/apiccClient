@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Groups</title>
+     <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Groups</h1>
+        <div class="post-list">
+            <div class="post-item" *ngFor="let group of (groups | async)">
+                
+                <div class="upper-post">
+                    
+                </div>
+                <div *ngIf="editingMode && group.id === selectedGroup.id; else viewingMode">
+                    <!-- Editing mode -->
+                    <form (submit)="updateGroup(selectedGroup)">
+                        <p>Group Name:</p>
+                        <textarea name="groupName" [(ngModel)]="selectedGroup.name" class="edit-content-text">{{group.name}}</textarea>
+                        <p>Group Description:</p>
+                        <textarea name="groupDescription" [(ngModel)]="selectedGroup.description" class="edit-content-text">{{group.description}}</textarea>
+                        <button type="submit" class="save-button">Save</button>
+                        
+                        <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
+                    </form>
+                </div>
+                <ng-template #viewingMode>
+                    <a class="a-tag" href="http://localhost:4200/groups/{{group.id}}">
+                    <!-- Viewing mode -->
+                    <div class="post-content">
+                        <h3 class="group-name">Group name:</h3>
+                        <p class="post-content-text">{{ group.name }}</p>
+                        <h3 class="group-description">Group description:</h3>
+                        <p class="post-content-text">{{ group.description }}</p>
+                    </div>
+                </a>
+                    
+                    <div class="lower-post">
+                        <button (click)="editGroup(group)" class="update-button">Edit</button>
+                        
+                        <button (click)="delete(group.id)" class="delete-button">Delete</button>
+                        
+                    </div>
+                    <div class="join-group">
+                        <button (click)="joinGroup(group.id)" class="join-button">Join</button>
+                    </div>
+                    
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

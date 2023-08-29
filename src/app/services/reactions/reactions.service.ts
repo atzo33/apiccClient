@@ -14,7 +14,7 @@ export class ReactionsService {
 
   createReaction(type:String, postIdReactedTo?: number | null, commentIdReactedTo?: number | null): Observable<Reaction> {
     return this.http.post<Reaction>(this.baseUrl, {type,postIdReactedTo,commentIdReactedTo});
-    window.location.reload();
+    
   }
 
   deleteReaction(id:number | undefined):Observable<Reaction>{

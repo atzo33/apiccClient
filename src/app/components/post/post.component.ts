@@ -35,6 +35,7 @@ export class PostComponent {
     this.posts = this.postService.getAllPostsByUser(this.userId);
     console.log(this.userId);
     
+    
   }
 
   delete(id:number){

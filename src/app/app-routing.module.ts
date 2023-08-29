@@ -8,6 +8,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 import { MyInfoComponent } from './pages/my-info/my-info.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { NewGroupComponent } from './pages/new-group/new-group.component';
+import { GroupDetailsComponent } from './pages/group-details/group-details.component';
 
 const routes: Routes = [
   { 
@@ -37,6 +40,18 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: ChangePasswordComponent,
+  } ,
+  {
+    path: 'groups',
+    component: GroupsComponent,
+  } ,
+  {
+    path: 'new-group',
+    component: NewGroupComponent,
+  } ,
+  {
+    path: 'groups/:id',
+    component: GroupDetailsComponent,
   } 
   
 ];
