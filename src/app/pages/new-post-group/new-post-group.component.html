@@ -1,0 +1,26 @@
+<app-nav-bar class="navbar"></app-nav-bar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>New Post</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Post</h1>
+        <form class="post-form" [formGroup]="createPostForm" (ngSubmit)="onSubmit()" >
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" cols="50" formControlName="content" placeholder="Write your post content..."></textarea>
+
+            
+            
+            <button type="submit" class="post-button">Post</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

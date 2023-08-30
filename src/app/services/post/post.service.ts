@@ -4,6 +4,7 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
+import Group from 'src/app/model/group';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,8 @@ export class PostService {
     this.http.post<any>(
       `${this.baseURL}/add`,
       {
-        content
+        content,
+        
       }
     ).subscribe({
       next: (response) => {
@@ -42,6 +44,28 @@ export class PostService {
       }
     })
     this.router.navigate(['profile']);
+    
+  }
+
+
+  public newPostForGroup(content: string,groupId:number): void {
+    this.http.post<any>(
+      `${this.baseURL}/group/add`,
+      {
+        content,
+        groupId
+        
+      }
+    ).subscribe({
+      next: (response) => {
+        console.log(response);
+        window.location.reload();
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+    this.router.navigate(['groups/',groupId]);
     
   }
 
@@ -98,6 +122,10 @@ export class PostService {
 
 
 
+  }
+
+  public getAllPostsForGroup(groupID: number): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.baseURL}/group/${groupID}`);
   }
 
 

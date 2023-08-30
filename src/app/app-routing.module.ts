@@ -11,6 +11,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { GroupsComponent } from './pages/groups/groups.component';
 import { NewGroupComponent } from './pages/new-group/new-group.component';
 import { GroupDetailsComponent } from './pages/group-details/group-details.component';
+import { NewPostGroupComponent } from './pages/new-post-group/new-post-group.component';
 
 const routes: Routes = [
   { 
@@ -52,7 +53,16 @@ const routes: Routes = [
   {
     path: 'groups/:id',
     component: GroupDetailsComponent,
+  } ,
+  {
+    path: 'groups/:id',
+    component: GroupDetailsComponent,
+  } ,
+  {
+    path: 'new-post/:id',
+    component: NewPostGroupComponent,
   } 
+
   
 ];
 

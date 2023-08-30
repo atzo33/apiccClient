@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import Group from 'src/app/model/group';
 import { Observable } from 'rxjs';
+import { GroupAdmin } from 'src/app/model/groupAdmin';
+import { GroupRequest } from 'src/app/model/groupRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +58,13 @@ export class GroupService {
     const url = `${this.baseURL}`;
     console.log(url);
 
-    return this.http.get<Group[]>(url);
+    return this.http.get<Group[]>(url,
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
+      });
   }
 
   deleteGroup(id: number): void {
@@ -91,6 +99,12 @@ export class GroupService {
         id,
         name,
         description 
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
       }
     ).subscribe({
       next: (response) => {
@@ -120,6 +134,12 @@ export class GroupService {
       {
         id
         
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
       }
     ).subscribe({
       next: (response) => {
@@ -136,6 +156,67 @@ export class GroupService {
 
 
   }
+
+
+  public getOne(id: number): Observable<Group> {
+    return this.http.get<Group>(`${this.baseURL}/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+      },
+      
+    });
+  }
+
+  getAllAdminsForGroup(id: number): Observable<GroupAdmin[]> {
+    return this.http.get<GroupAdmin[]>(`${this.baseURL}/admins/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+      },
+      
+    });
+  }
+
+  public getAllPendingMembersInGroup(
+    groupID: number
+  ): Observable<GroupRequest[]> {
+
+
+    return this.http.get<GroupRequest[]>(
+
+      `${this.baseURL}/members/pending/${groupID}`,
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
+      }
+    );
+  }
+
+  public updateGroupJoin(
+    groupID: number,
+    requestID: number,
+    decision: boolean
+  ): Observable<GroupRequest> {
+    return this.http.post<GroupRequest>(
+      `${this.baseURL}/members/update-join-request`,
+      {
+        groupID,
+        requestID,
+        decision,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
+      }
+    );
+  }
+
+
 
 
 

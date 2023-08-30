@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+    color: #fff;
+}
+.navbar{
+    margin-bottom: 15px;
+}
+
+.container {
+    width: 60%; /* Adjust the width as needed */
+    
+    margin: 0 auto;
+    padding: 20px;
+    outline: 2px solid #ffcc00; /* Add outline to the container */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    position: relative; /* Set position to use z-index */
+    z-index: 2; /* Bring the form above the main page content */
+}
+
+h1 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.post-form {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 98%; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+input[type="file"] {
+    display: block;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffdd33;
+}
+
+button.post-button {
+    display: block;
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.post-button:hover {
+    background-color: #ffdd33;
+}

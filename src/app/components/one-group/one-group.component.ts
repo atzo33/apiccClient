@@ -81,7 +81,7 @@ export class OneGroupComponent {
 
   joinGroup(id:number){
     this.groupService.joinGroup(id);
-    // window.location.reload();
+    window.location.reload();
 
   }
 

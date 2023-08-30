@@ -1,1 +1,17 @@
-<p>group-details works!</p>
+<app-nav-bar></app-nav-bar>
+<app-group-details-nav-bar></app-group-details-nav-bar>
+
+<div class="container">
+  <div class="group-header">
+    <h1 class="group-name">Name: {{group.name}}</h1>
+    <p class="group-description">Description: {{group.description}}</p>
+  </div>
+</div>
+
+<div class="button-container">
+  <a href="http://localhost:4200/new-post/{{group.id}}"><button class="new-post-button">New Post</button></a>
+</div>
+
+<app-group-post [groupID]="group.id"></app-group-post>
+
+
