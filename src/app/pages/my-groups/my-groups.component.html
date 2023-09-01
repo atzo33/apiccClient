@@ -1,0 +1,38 @@
+<app-nav-bar></app-nav-bar>
+<app-groups-nav-bar></app-groups-nav-bar>
+
+<div class="container">
+    <h1>Groups</h1>
+    <div class="post-list">
+        <div class="post-item" *ngFor="let group of (groups | async)">
+            
+            <div class="upper-post">
+                
+            </div>
+           
+            
+                <a class="a-tag" href="http://localhost:4200/groups/{{group.id}}">
+                    
+                <!-- Viewing mode -->
+                <div class="post-content">
+                    <h3 class="group-name">Group name:</h3>
+                    <p class="post-content-text">{{ group.name }}</p>
+                    <h3 class="group-description">Group description:</h3>
+                    <p class="post-content-text">{{ group.description }}</p>
+                </div>
+            </a>
+                
+                <!-- <div class="lower-post">
+                    <button (click)="editGroup(group)" class="update-button">Edit</button>
+                    
+                    <button (click)="delete(group.id)" class="delete-button">Delete</button>
+                    
+                </div>
+                <div class="join-group">
+                    <button (click)="joinGroup(group.id)" class="join-button">Join</button>
+                </div> -->
+                
+            
+        </div>
+    </div>
+</div>

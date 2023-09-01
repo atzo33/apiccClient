@@ -14,7 +14,7 @@
         <div class="post-list">
             <div class="post-item" *ngFor="let post of (posts | async)">
                 <div class="upper-post">
-                    <p class="post-name">Posted by: {{post.user.username}}</p>
+                    <p class="post-name">Posted by: {{post.user.username}}  in <a href="http://localhost:4200/groups/{{groupID}}">group</a></p>
                 </div>
                 <div *ngIf="editingMode && post.id === selectedPost.id; else viewingMode">
                     <!-- Editing mode -->

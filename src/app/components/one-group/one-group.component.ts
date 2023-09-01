@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import Group from 'src/app/model/group';
+import { GroupAdmin } from 'src/app/model/groupAdmin';
+import { GroupRequest } from 'src/app/model/groupRequest';
 import User from 'src/app/model/user';
 import { GroupService } from 'src/app/services/group/group.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -18,6 +20,13 @@ export class OneGroupComponent {
   userId!: number;
   editingMode = false;
   selectedGroup: any;
+
+  groupAdmins: GroupAdmin[] | undefined;
+  groupMembers!: GroupRequest[];
+
+  isUserInGroup: boolean = false;
+  isUserAdminOfGroup: boolean = false;
+
   
 
   groups!: Observable<Group[]>;
@@ -31,6 +40,8 @@ export class OneGroupComponent {
     this.userId=this.loggedUser.id;
 
     this.loadGroups();
+    
+
     
     
   }
@@ -84,5 +95,7 @@ export class OneGroupComponent {
     window.location.reload();
 
   }
+
+  
 
 }

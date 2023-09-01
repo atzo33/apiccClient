@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-group-details-nav-bar',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./group-details-nav-bar.component.css']
 })
 export class GroupDetailsNavBarComponent {
+
+  @Input() groupID!:number
 
 }

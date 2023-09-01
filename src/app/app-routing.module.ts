@@ -12,6 +12,8 @@ import { GroupsComponent } from './pages/groups/groups.component';
 import { NewGroupComponent } from './pages/new-group/new-group.component';
 import { GroupDetailsComponent } from './pages/group-details/group-details.component';
 import { NewPostGroupComponent } from './pages/new-post-group/new-post-group.component';
+import { PendingRequestsComponent } from './pages/pending-requests/pending-requests.component';
+import { MyGroupsComponent } from './pages/my-groups/my-groups.component';
 
 const routes: Routes = [
   { 
@@ -61,6 +63,14 @@ const routes: Routes = [
   {
     path: 'new-post/:id',
     component: NewPostGroupComponent,
+  } ,
+  {
+    path: 'pending-requests/:id',
+    component: PendingRequestsComponent,
+  } ,
+  {
+    path: 'my-groups',
+    component: MyGroupsComponent,
   } 
 
   

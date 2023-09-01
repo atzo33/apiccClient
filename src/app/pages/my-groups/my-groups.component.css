@@ -79,9 +79,34 @@ h1 {
 .update-button:hover, .delete-button:hover {
     background-color: #ffdd33;
 }
-
-a {
-    color: #0060B6;
-    text-decoration: none;
+.group-name{
+    outline: auto;
+    padding: 5px;
+    
 }
+
+.group-description{
+    outline: auto;
+    padding: 5px;
+    
+}
+.join-button{
+    background-color: #89CFF0;
+    color: #333;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:7px;
+    font-size: large;
+
+}
+.a-tag{
+    
+    text-decoration: none;
+    color: inherit;
+    
+   
+}
+
 

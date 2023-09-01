@@ -20,6 +20,9 @@ export class GroupDetailsComponent {
   groupAdmins: GroupAdmin[] | undefined;
   groupMembers!: GroupRequest[];
   groupPendingRequests!: GroupRequest[];
+
+  editingMode = false;
+  selectedGroup: any;
   
   groupPosts!: Post[];
   userID!: number;
@@ -50,6 +53,7 @@ export class GroupDetailsComponent {
     this.getGroupData();
     this.getAllGroupAdmins();
     this.getAllPendingRequests();
+    this.getAllMembers();
     
 
 
@@ -62,6 +66,7 @@ export class GroupDetailsComponent {
       this.groupID = Number(params.get('id'));
     });
   }
+  
 
   getAllPosts() {
     this.postService
@@ -100,6 +105,61 @@ export class GroupDetailsComponent {
       .subscribe((data) => {
         this.groupPendingRequests = data;
       });
+  }
+
+
+  getAllMembers() {
+    this.groupService
+      .getAllMembersInGroup(this.groupID as number)
+      .subscribe((data) => {
+        this.groupMembers = data;
+        this.groupMembers.map((member) => {
+          if (member.userRequesting.id === this.loggedUser?.id) {
+            this.isUserInGroup = true;
+          }
+        });
+      });
+  }
+
+  delete(id:number){
+
+    this.groupService.deleteGroup(id);
+    
+  }
+
+  editGroup(group: any) {
+    this.editingMode = true;
+    this.selectedGroup = { ...group };
+    
+    
+  }
+  
+  cancelEdit() {
+    this.editingMode=false
+    
+  }
+  
+  updateGroup(group: any) {
+
+    
+    const name=group.name;
+    console.log(name)
+    const id=group.id;
+    console.log(id)
+    const description=group.description
+    console.log(description)
+    
+
+    this.groupService.updateGroup(id,name,description);
+    this.editingMode=false
+    window.location.reload();
+    
+  }
+
+  joinGroup(id:number){
+    this.groupService.joinGroup(id);
+    window.location.reload();
+
   }
 
 }

@@ -128,6 +128,14 @@ export class PostService {
     return this.http.get<Post[]>(`${this.baseURL}/group/${groupID}`);
   }
 
+  public getAll(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.baseURL, {
+      headers: {
+        Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+      },
+    });
+  }
+
 
 
 

@@ -18,8 +18,10 @@ export class ReactionsComponent {
   isLikeClicked: boolean = false;
   isDislikeClicked: boolean = false;
   isHeartClicked: boolean = false;
-  reactions: Reaction[] = []
-  user !: User
+  reactions: Reaction[] = [];
+  user !: User;
+  userId!:number;
+  loggedUser!:User;
   reactionId: number | undefined
   likeReactionId:number|undefined
   dislikeReactionId:number|undefined
@@ -29,6 +31,8 @@ export class ReactionsComponent {
   constructor(private reactionService: ReactionsService,private userService: UserService){}
 
   ngOnInit(){
+    this.loggedUser = this.userService.getUser() as User;
+    this.userId=this.loggedUser.id;
     this.getReactions();
   }
 
@@ -52,7 +56,7 @@ export class ReactionsComponent {
           console.log("Tip pokupljene rakcije")
           console.log(reaction.type);
           
-          if(reaction.reactedBy.id == this.user.id ){
+          if(reaction.reactedBy.id === this.userId ){
             
     
             if(reaction.type == 'LIKE'){

@@ -1,0 +1,17 @@
+<app-nav-bar></app-nav-bar>
+<app-group-details-nav-bar></app-group-details-nav-bar>
+
+<div class="pending-requests-container">
+    <div class="request-item" *ngFor="let request of groupPendingRequests">
+      <div class="user-info">
+        <p class="username">{{request.userRequesting.username}}</p>
+        <p class="name">{{request.userRequesting.firstName}} {{request.userRequesting.lastName}}</p>
+      </div>
+      <div class="action-buttons">
+        <button  class="approve-button" (click)="approve(request.id)" >Approve</button>
+        <button  class="reject-button" (click)="delete(request.id)" >Reject</button>
+      </div>
+    </div>
+  </div>
+  
+  

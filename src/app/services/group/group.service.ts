@@ -53,11 +53,11 @@ export class GroupService {
     this.router.navigate(['groups']);
     
   }
-
+  
   getAllGroups(): Observable<Group[]> {
     const url = `${this.baseURL}`;
     console.log(url);
-
+    
     return this.http.get<Group[]>(url,
       {
         headers: {
@@ -66,7 +66,20 @@ export class GroupService {
         
       });
   }
+  
+  public getAllGroupsByUser(id:number):Observable<Group[]>{
+    const url = `${this.baseURL}/user/${id}`;
+    console.log(url);
+    
+    return this.http.get<Group[]>(url,
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
+      });
 
+  }
   deleteGroup(id: number): void {
 
     const url = `${this.baseURL}/${id}`;
@@ -83,7 +96,7 @@ export class GroupService {
         console.error('Error deleting post:', error);
       }
     });;
-    window.location.reload();
+    // window.location.reload();
 
   }
 
@@ -134,13 +147,8 @@ export class GroupService {
       {
         id
         
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
-        },
-        
       }
+  
     ).subscribe({
       next: (response) => {
         console.log(response);
@@ -195,18 +203,13 @@ export class GroupService {
     );
   }
 
-  public updateGroupJoin(
-    groupID: number,
-    requestID: number,
-    decision: boolean
+  public approveGroupJoin(
+    id:number
   ): Observable<GroupRequest> {
-    return this.http.post<GroupRequest>(
-      `${this.baseURL}/members/update-join-request`,
-      {
-        groupID,
-        requestID,
-        decision,
-      },
+    console.log(id);
+    return this.http.put<GroupRequest>(
+      `${this.baseURL}/members/approve-join-request/${id}`,
+      
       {
         headers: {
           Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
@@ -215,6 +218,27 @@ export class GroupService {
       }
     );
   }
+
+
+  public rejectGroupJoin(
+    id:number
+  ): Observable<GroupRequest> {
+    return this.http.put<GroupRequest>(
+      `${this.baseURL}/members/reject-join-request/${id}`,
+      
+      {
+        headers: {
+          Authorization: `Bearer ${this.localStorageService.getItem('token')}`,
+        },
+        
+      }
+    );
+  }
+
+  public getAllMembersInGroup(groupID: number): Observable<GroupRequest[]> {
+    return this.http.get<GroupRequest[]>(`${this.baseURL}/members/${groupID}`);
+  }
+
 
 
 
