@@ -13,7 +13,7 @@ export interface Post {
 
     comments: Comment
 
-    postedIn:number 
+    groupId:number 
 
     creationDate: String 
 

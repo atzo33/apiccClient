@@ -19,7 +19,7 @@ export class HomeComponent {
   selectedPost: any;
   isMyPost=false;
   postId!:number;
-  
+  groupId!:number;
 
   posts!: Observable<Post[]>;// Replace 'any' with the actual type of your posts
   

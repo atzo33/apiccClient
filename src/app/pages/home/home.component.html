@@ -7,7 +7,7 @@
         <div class="post-list">
             <div class="post-item" *ngFor="let post of (posts|async) ">
                 <div class="upper-post">
-                    <p class="post-name">Posted by: {{post.user.username}}</p>
+                    <p class="post-name">Posted by: {{post.user.username}} in: <a *ngIf="post.groupId" href="http://localhost:4200/groups/{{post.groupId}}">group</a></p>
                 </div>
                 <div *ngIf="editingMode && post.id === selectedPost.id; else viewingMode">
                     <!-- Editing mode -->
@@ -21,12 +21,12 @@
                 <ng-template #viewingMode>
                     <!-- Viewing mode -->
                     <div class="post-content">
-                        <p class="post-content-text">{{post.id}}{{ post.content }}</p>
+                        <p class="post-content-text">{{ post.content }}</p>
                     </div>
                     <div class="lower-post">
-                        <button *ngIf="isMyPost" (click)="editPost(post)" class="update-button">Edit</button>
+                        <button *ngIf="post.user.id==loggedUser.id" (click)="editPost(post)" class="update-button">Edit</button>
                         
-                        <button *ngIf="isMyPost" (click)="delete(post.id)" class="delete-button">Delete</button>
+                        <button *ngIf="post.user.id==loggedUser.id" (click)="delete(post.id)" class="delete-button">Delete</button>
                         <div class="reactions">
                             <app-reactions  [postId]="post.id"></app-reactions>
                         </div>
