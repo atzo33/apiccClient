@@ -25,11 +25,14 @@
                         <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
                     </form>
                 </div>
+
                 <ng-template #viewingMode>
+                    <a href="http://localhost:4200/posts/{{post.id}}">
                     <!-- Viewing mode -->
                     <div class="post-content">
                         <p class="post-content-text">{{ post.content }}</p>
                     </div>
+                </a>
                     <div class="lower-post">
                         <button (click)="editPost(post)" class="update-button">Edit</button>
                         

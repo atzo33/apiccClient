@@ -29,6 +29,8 @@ import { NewPostGroupComponent } from './pages/new-post-group/new-post-group.com
 import { GroupPostComponent } from './components/group-post/group-post.component';
 import { PendingRequestsComponent } from './pages/pending-requests/pending-requests.component';
 import { MyGroupsComponent } from './pages/my-groups/my-groups.component';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
+import { NewCommentComponent } from './pages/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { MyGroupsComponent } from './pages/my-groups/my-groups.component';
     NewPostGroupComponent,
     GroupPostComponent,
     PendingRequestsComponent,
-    MyGroupsComponent
+    MyGroupsComponent,
+    PostDetailsComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,

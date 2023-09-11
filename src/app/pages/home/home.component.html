@@ -20,9 +20,11 @@
                 </div>
                 <ng-template #viewingMode>
                     <!-- Viewing mode -->
+                    <a href="http://localhost:4200/posts/{{post.id}}">
                     <div class="post-content">
                         <p class="post-content-text">{{ post.content }}</p>
                     </div>
+                </a>
                     <div class="lower-post">
                         <button *ngIf="post.user.id==loggedUser.id" (click)="editPost(post)" class="update-button">Edit</button>
                         

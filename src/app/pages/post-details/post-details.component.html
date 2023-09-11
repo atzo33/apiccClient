@@ -1,0 +1,49 @@
+<app-nav-bar></app-nav-bar>
+
+<body>
+    <div class="button-container">
+        <a href="http://localhost:4200/new-comment/{{postID}}"><button class="new-post-button">New Comment</button></a>
+    </div>
+    <div class="container">
+        <h1>Comments:</h1>
+        <div class="post-list">
+            <div class="post-item" *ngFor="let comment of postComments ">
+                <div class="upper-post">
+                    <p class="post-name"></p>
+                </div>
+                <div *ngIf="editingMode && comment.id === selectedComment.id; else viewingMode">
+                    <!-- Editing mode -->
+                    <form (submit)="updateComment(selectedComment)">
+                        <textarea name="commentText" [(ngModel)]="selectedComment.text" class="edit-content-text" placeholder="{{selectedComment.text}}">{{comment.text}}</textarea>
+                        <button type="submit" class="save-button">Save</button>
+                        
+                        <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
+                    </form>
+                </div>
+
+                <ng-template #viewingMode>
+                    
+                    <!-- Viewing mode -->
+                    <div class="post-content">
+                        <p class="post-content-text">{{ comment.text }}</p>
+                    </div>
+                
+                    <div class="lower-post">
+                        <button (click)="editComment(comment)" class="update-button">Edit</button>
+                        
+                        <button (click)="delete(comment.id)" class="delete-button">Delete</button>
+                        
+                    </div>
+                    
+                    
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+    
+    
+    
+    
